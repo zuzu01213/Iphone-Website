@@ -97,6 +97,7 @@ canvas {
     @apply text-4xl md:text-7xl font-semibold text-center
   }
 
+
   .hiw-subtitle {
     @apply text-gray font-semibold text-xl md:text-2xl py-10 text-center
   }
