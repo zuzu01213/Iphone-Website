@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { hightlightsSlides } from "../constants/index.js";
 import gsap from "gsap";
 import { pauseImg, playImg, replayImg } from "../utils/index.js";
@@ -13,7 +13,6 @@ export const VideoCarousel = () => {
     const videoDivRef = useRef([]);
 
     const [video, setVideo] = useState({
-        isEnd: false,
         startPlay: false,
         videoId: 0,
         isLastVideo: false,
@@ -21,7 +20,7 @@ export const VideoCarousel = () => {
     });
 
     const [loadedData, setLoadedData] = useState({});
-    const { isEnd, isLastVideo, isPlaying, videoId, startPlay } = video;
+    const { isLastVideo, isPlaying, videoId, startPlay } = video;
 
     useIsomorphicLayoutEffect(() => {
         gsap.to('#slider', {
@@ -120,7 +119,6 @@ export const VideoCarousel = () => {
             case 'video-end':
                 setVideo((prev) => ({
                     ...prev,
-                    isEnd: true,
                     videoId: prev.videoId + 1,
                     isLastVideo: prev.videoId + 1 === hightlightsSlides.length,
                 }));
@@ -133,7 +131,6 @@ export const VideoCarousel = () => {
                 break;
             case 'video-reset':
                 setVideo({
-                    isEnd: false,
                     startPlay: false,
                     videoId: 0,
                     isLastVideo: false,
@@ -146,7 +143,6 @@ export const VideoCarousel = () => {
                     isPlaying: !prev.isPlaying,
                 }));
                 break;
-
             default:
                 break;
         }
