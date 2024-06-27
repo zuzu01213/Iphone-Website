@@ -3,6 +3,8 @@ import {Highlights} from "./components/Highlights.jsx";
 import {Hero} from "./components/Hero.jsx";
 import {Model} from "./components/Model.jsx";
 import {Feature} from "./components/Feature.jsx";
+import {HowItWorks} from "./components/HowItWorks.jsx";
+import {Footer} from "./components/Footer.jsx";
 const App = () => {
 
   return (
@@ -14,6 +16,8 @@ const App = () => {
           <Highlights/>
           <Model/>
           <Feature/>
+          <HowItWorks/>
+          <Footer/>
       </main>
   )
 }
